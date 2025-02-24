@@ -9,7 +9,7 @@ namespace TailSpin.SpaceGame.Web.Models
         public string ProfileId { get; set; }
 
         // The score value.
-        [JsonPropertyName("score")]
+        [JsonPropertyName("highScore")]
         public int HighScore { get; set; }
 
         // The game mode the score is associated with.
@@ -19,9 +19,5 @@ namespace TailSpin.SpaceGame.Web.Models
         // The game region (map) the score is associated with.
         [JsonPropertyName("gameRegion")]
         public string GameRegion { get; set; }
-
-        // The game style (difficulty) the score is associated with.
-        [JsonPropertyName("gameStyle")]
-        public string GameStyle { get; set; }
     }
 }

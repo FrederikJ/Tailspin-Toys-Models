@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TailSpin.SpaceGame.Web.Models
 {
@@ -28,16 +29,26 @@ namespace TailSpin.SpaceGame.Web.Models
         public string NextLink { get; set; }
         // The total number of results for the selected game mode and region in the view.
         public int TotalResults { get; set; }
+
+        // An error message if something went wrong.
+        public string ErrorMessage { get; set; }
+
+        public LeaderboardViewModel()
+        {
+            this.Scores = new ScoreProfile[0];
+        }
     }
 
     /// <summary>
     /// Combines a score and a user profile.
     /// </summary>
-    public struct ScoreProfile
+    public class ScoreProfile
     {
         // The player's score.
-        public Score Score;
+        [JsonPropertyName("score")]
+        public Score Score { get; set; }
         // The player's profile.
-        public Profile Profile;
+        [JsonPropertyName("profile")]
+        public Profile Profile { get; set; }
     }
 }
